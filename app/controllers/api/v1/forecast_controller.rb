@@ -1,11 +1,16 @@
 class Api::V1::ForecastController < ApplicationController
   def show
-    raw_json = Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=Denver,+CO&key=AIzaSyCaX55pPOKJVxy2kH0T9ysvh0exn2UzyE0")
-    clean_json = JSON.parse(raw_json.body, symbolize_names:true)
-    lng = clean_json[:results].first[:geometry][:location][:lng]
-    lat = clean_json[:results].first[:geometry][:location][:lat]
-    # JSON.parse(raw_json.body, symbolize_names:true)[:results].first[:geometry][:location][:lat]
+    lat = LocationGetter.new(location_params).get_lat
+    lng = LocationGetter.new(location_params).get_lng
+
+    raw_json_forecast = Faraday.get("https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{lat},#{lng}")
     binding.pry
+  end
+
+  private
+
+  def location_params
+    params.permit(:location)
   end
 end
 
