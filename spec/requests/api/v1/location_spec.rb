@@ -10,7 +10,7 @@ RSpec.describe "when the landing page is accessed" do
     expect(parsed_data).to eq()
   end
 
-  it "can get the lat and long for a city and state" do 
+  xit "can get the lat and long for a city and state" do 
     get '/api/v1/forecast?location=denver,co'
   end
 
