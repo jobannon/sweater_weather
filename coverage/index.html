@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-02T11:37:12-07:00">2020-03-02T11:37:12-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-02T11:52:12-07:00">2020-03-02T11:52:12-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  96.45%
+  97.83%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.18
+         1.2
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>141</b> relevant lines,
-    <span class="green"><b>136</b> lines covered</span> and
-    <span class="red"><b>5</b> lines missed. </span>
+    <b>138</b> relevant lines,
+    <span class="green"><b>135</b> lines covered</span> and
+    <span class="red"><b>3</b> lines missed. </span>
     (<span class="green">
-  96.45%
+  97.83%
 </span>
 )
   </div>
@@ -127,19 +127,19 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#12a8334eabbf83a710e078b15cb3c9e9f0dd4889" class="src_link" title="app/services/forecast_getter_json.rb">app/services/forecast_getter_json.rb</a></td>
-            <td class="yellow strong cell--number t-file__coverage">80.95 %</td>
-            <td class="cell--number">39</td>
-            <td class="cell--number">21</td>
-            <td class="cell--number">17</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">0.81</td>
+            <td class="yellow strong cell--number t-file__coverage">88.89 %</td>
+            <td class="cell--number">34</td>
+            <td class="cell--number">18</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">0.89</td>
             
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#68ddcf3018186d3f3c0bfb86663dad496f5350e9" class="src_link" title="app/services/location_getter.rb">app/services/location_getter.rb</a></td>
+            <td class="strong t-file__name"><a href="#7ebe20e70332700a68df9c3d38ca6530ae7644b1" class="src_link" title="app/services/location_getter_json.rb">app/services/location_getter_json.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">55</td>
+            <td class="cell--number">54</td>
             <td class="cell--number">30</td>
             <td class="cell--number">30</td>
             <td class="cell--number">0</td>
@@ -362,7 +362,7 @@
 
             
 
-            <code class="ruby">    lat = LocationGetter.new(location_params).get_lat</code>
+            <code class="ruby">    lat = LocationGetterJson.new(location_params).get_lat</code>
           </li>
         </div>
       
@@ -373,7 +373,7 @@
 
             
 
-            <code class="ruby">    lng = LocationGetter.new(location_params).get_lng</code>
+            <code class="ruby">    lng = LocationGetterJson.new(location_params).get_lng</code>
           </li>
         </div>
       
@@ -395,7 +395,7 @@
 
             
 
-            <code class="ruby">    travel_time_english = LocationGetter.new(location_params, &#39;directions&#39;).get_travel_time</code>
+            <code class="ruby">    travel_time_english = LocationGetterJson.new(location_params, &#39;directions&#39;).get_travel_time</code>
           </li>
         </div>
       
@@ -406,7 +406,7 @@
 
             
 
-            <code class="ruby">    travel_time_seconds = LocationGetter.new(location_params, &#39;directions&#39;).get_travel_time_seconds</code>
+            <code class="ruby">    travel_time_seconds = LocationGetterJson.new(location_params, &#39;directions&#39;).get_travel_time_seconds</code>
           </li>
         </div>
       
@@ -1292,7 +1292,7 @@
     <h3>app/services/forecast_getter_json.rb</h3>
     <h4>
       <span class="yellow">
-  80.95%
+  88.89%
 </span>
 
       lines covered
@@ -1301,9 +1301,9 @@
     
 
     <div class="t-line-summary">
-      <b>21</b> relevant lines.
-      <span class="green"><b>17</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <b>18</b> relevant lines.
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
 
     
@@ -1474,7 +1474,7 @@
 
             
 
-            <code class="ruby">    get_json_with_time</code>
+            <code class="ruby">    get_json</code>
           </li>
         </div>
       
@@ -1573,7 +1573,7 @@
 
             
 
-            <code class="ruby">  def get_json</code>
+            <code class="ruby">  def conn_with_time</code>
           </li>
         </div>
       
@@ -1584,7 +1584,7 @@
 
             
 
-            <code class="ruby">    response = conn.get do |c|</code>
+            <code class="ruby">    Faraday.new(&quot;https://api.darksky.net/forecast/#{ENV[&#39;DARK_SKY_API_KEY&#39;]}/#{@lat},#{@lng},#{@time}&quot;) </code>
           </li>
         </div>
       
@@ -1595,34 +1595,12 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="27">
-            
-            
-
-            
-
-            <code class="ruby">    JSON.parse(response.body, symbolize_names:true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
-            
-
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
+          <li class="never" data-hits="" data-linenumber="27">
             
             
 
@@ -1633,24 +1611,46 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="30">
+          <li class="covered" data-hits="1" data-linenumber="28">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def conn_with_time</code>
+            <code class="ruby">  def get_json</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="31">
+          <li class="covered" data-hits="1" data-linenumber="29">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    response = conn.get do |c|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 
             
 
-            <code class="ruby">    Faraday.new(&quot;https://api.darksky.net/forecast/#{ENV[&#39;DARK_SKY_API_KEY&#39;]}/#{@lat},#{@lng},#{@time}&quot;) </code>
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    JSON.parse(response.body, symbolize_names:true)</code>
           </li>
         </div>
       
@@ -1677,62 +1677,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def get_json_with_time</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    response = conn.get do |c|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="36">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    JSON.parse(response.body, symbolize_names:true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="34">
             
             
 
@@ -1747,9 +1692,9 @@
 </div>
 
       
-        <div class="source_table" id="68ddcf3018186d3f3c0bfb86663dad496f5350e9">
+        <div class="source_table" id="7ebe20e70332700a68df9c3d38ca6530ae7644b1">
   <div class="header">
-    <h3>app/services/location_getter.rb</h3>
+    <h3>app/services/location_getter_json.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -1780,7 +1725,7 @@
 
             
 
-            <code class="ruby">class LocationGetter</code>
+            <code class="ruby">class LocationGetterJson</code>
           </li>
         </div>
       
@@ -2181,29 +2126,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
-            
-
-            <code class="ruby"># https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&amp;destination=Universal+Studios+Hollywood&amp;key=YOUR_API_KEY</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="39">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
+          <li class="covered" data-hits="1" data-linenumber="38">
             <span class="hits">1</span>
             
 
@@ -2214,7 +2137,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="41">
+          <li class="covered" data-hits="2" data-linenumber="39">
             <span class="hits">2</span>
             
 
@@ -2225,7 +2148,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="42">
+          <li class="covered" data-hits="2" data-linenumber="40">
             <span class="hits">2</span>
             
 
@@ -2236,7 +2159,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -2247,7 +2170,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="44">
+          <li class="covered" data-hits="2" data-linenumber="42">
             <span class="hits">2</span>
             
 
@@ -2258,7 +2181,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
@@ -2269,7 +2192,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="never" data-hits="" data-linenumber="44">
             
             
 
@@ -2280,7 +2203,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
+          <li class="covered" data-hits="1" data-linenumber="45">
             <span class="hits">1</span>
             
 
@@ -2291,7 +2214,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="48">
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby">    # https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&amp;destination=Universal+Studios+Hollywood&amp;key=YOUR_API_KEY</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="47">
             <span class="hits">2</span>
             
 
@@ -2302,7 +2236,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="49">
+          <li class="covered" data-hits="2" data-linenumber="48">
             <span class="hits">2</span>
             
 
@@ -2313,7 +2247,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="50">
+          <li class="covered" data-hits="2" data-linenumber="49">
             <span class="hits">2</span>
             
 
@@ -2324,7 +2258,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="51">
+          <li class="never" data-hits="" data-linenumber="50">
             
             
 
@@ -2335,7 +2269,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="52">
+          <li class="covered" data-hits="2" data-linenumber="51">
             <span class="hits">2</span>
             
 
@@ -2346,7 +2280,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="never" data-hits="" data-linenumber="52">
             
             
 
@@ -2357,7 +2291,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="54">
+          <li class="never" data-hits="" data-linenumber="53">
             
             
 
@@ -2368,7 +2302,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="never" data-hits="" data-linenumber="54">
             
             
 

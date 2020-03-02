@@ -1,4 +1,4 @@
-class LocationGetter
+class LocationGetterJson
   attr_reader :location
 
   def initialize(location, service = 'geocode')
@@ -35,8 +35,6 @@ class LocationGetter
     end
   end
 
-# https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=YOUR_API_KEY
-
   def get_json
     response = conn.get do |c|
       c.params['address'] = @location
@@ -45,6 +43,7 @@ class LocationGetter
   end
 
   def get_json_directions
+    # https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=YOUR_API_KEY
     response = conn(@service).get do |c|
       c.params['origin'] = @start
       c.params['destination'] = @end

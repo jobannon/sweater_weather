@@ -281,7 +281,7 @@
           null
         ]
       },
-      "/Users/josho/turing/3module/projects/sweater_weather/app/services/location_getter.rb": {
+      "/Users/josho/turing/3module/projects/sweater_weather/app/services/location_getter_json.rb": {
         "lines": [
           1,
           1,
@@ -320,8 +320,6 @@
           null,
           null,
           null,
-          null,
-          null,
           1,
           2,
           2,
@@ -330,6 +328,7 @@
           null,
           null,
           1,
+          null,
           2,
           2,
           2,
@@ -368,17 +367,12 @@
           1,
           0,
           null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
           null,
           1,
           1,
           null,
           1,
+          null,
           null,
           null
         ]
@@ -451,6 +445,6 @@
         ]
       }
     },
-    "timestamp": 1583174232
+    "timestamp": 1583175131
   }
 }

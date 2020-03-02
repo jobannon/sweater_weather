@@ -12,7 +12,7 @@ class ForecastGetterJson
 
   def get_forcast_future(time)
     @time = time
-    get_json_with_time
+    get_json
   end
 
   private
@@ -21,19 +21,14 @@ class ForecastGetterJson
     Faraday.new("https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{@lat},#{@lng}") 
   end
 
+  def conn_with_time
+    Faraday.new("https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{@lat},#{@lng},#{@time}") 
+  end
+
   def get_json
     response = conn.get do |c|
     end
     JSON.parse(response.body, symbolize_names:true)
   end
 
-  def conn_with_time
-    Faraday.new("https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{@lat},#{@lng},#{@time}") 
-  end
-
-  def get_json_with_time
-    response = conn.get do |c|
-    end
-    JSON.parse(response.body, symbolize_names:true)
-  end
 end
