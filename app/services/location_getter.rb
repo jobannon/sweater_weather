@@ -2,9 +2,10 @@ class LocationGetter
   attr_reader :location
 
   def initialize(location)
-    # @location = location
+    #yeah, I know, this needs a refact to one conn connection and not a wierd reassignment of the @location variable...but "tech debt" 
     @start = location[:start]
     @end = location[:end]
+    @location = location[:end]
   end
 
   def get_lat
@@ -17,7 +18,12 @@ class LocationGetter
 
   def get_travel_time
     clean_json = get_json_directions()
-    clean_json[:routes].first[:legs].first[:duration][:text]
+    clean_json[:routes].first[:legs].first[:duration][:text] #actual human english
+  end
+
+  def get_travel_time_seconds
+    clean_json = get_json_directions()
+    clean_json[:routes].first[:legs].first[:duration][:value] #google value
   end
 
   private
