@@ -10,7 +10,8 @@ RSpec.describe "as a request" do
   get "/api/v1/munchies?start=denver,co&end=pueblo,co&food=chinese"
 
   clean = JSON.parse(response.body, symbolize_names: true)
-  binding.pry
+
+  expect(clean[:data][:attributes].count).to eq(5)
 
   expect(clean[:data][:attributes][:end_location]).to eq("pueblo,co")
   expect(clean[:data][:attributes][:travel_time]).to eq("1 hour 48 mins")
