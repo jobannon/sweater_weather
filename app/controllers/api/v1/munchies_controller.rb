@@ -14,7 +14,7 @@ class Api::V1::MunchiesController < ApplicationController
 
     final_results_hash_builder = FinalResults.new(location_params, travel_time_english, json_forecast, yelp_obj)
 
-    binding.pry
+    render json: FinalResultsSerializer.new(final_results_hash_builder)
   end
 
   private
