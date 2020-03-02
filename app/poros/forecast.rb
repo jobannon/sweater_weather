@@ -11,7 +11,6 @@ class Forecast
 
   def make_left(incm_json, location)
     @left = {}
-    @left[:id] = nil
     @left[:icon] = incm_json[:currently][:icon]
     @left[:summary]= incm_json[:currently][:summary]
     @left[:temperature] = incm_json[:currently][:temperature]
@@ -19,8 +18,8 @@ class Forecast
     @left[:temperature_low] = incm_json[:daily][:data].first[:temperatureLow]
     @left[:state] = location.split(',').first
     @left[:city] = location.split(',').last
-    @left[:time] = "need" 
-    @left[:date] = "need" 
+    @left[:time] = incm_json[:currently][:time]
+    @left[:date] = incm_json[:currently][:time]
   end
 
   def make_right(incm_json, location)
@@ -32,33 +31,56 @@ class Forecast
     @right[:visiblity] = sprintf( "%0.02f", incm_json[:currently][:visibility])
     @right[:uv_index] = incm_json[:currently][:uvIndex]
     @right[:today_message] =  incm_json[:daily][:data].first[:summary]
-    @right[:tommorrow_message] = incm_json[:daily][:data].second[:summary]
+    @right[:tonight_message] =incm_json[:hourly][:data].last[:summary]
   end
 
   def make_bottom(incm_json, location)
-    i = 1
+    i = 0 
     @bottom = {}
-    @bottom[:across_days] =@days_array = Array.new && bottom_make_days_array(incm_json)
-    @bottom[:temp_days] = @days_array_temp = Array.new && bottom_make_days_array_temp(incm_json)
+
+    @days_hash = bottom_make_days_hash(incm_json)
+    @bottom[:across_days] = @days_hash
+
+    @hours_hash_temp = bottom_make_hours_hash_temp(incm_json)
+    @bottom[:temp_hours] = @hours_hash_temp 
   end
 
   private 
 
-  def bottom_make_days_array(incm_json)
-    i = 1
-    @days_array = []
+  def bottom_make_days_hash(incm_json)
+    i = 0 
+
     incm_json[:daily][:data].reduce({}) do |acc, day_block|
-      i = i + 1
-      acc[("day_"+"#{i}").to_sym] = [day_block[:time], day_block[:icon], day_block[:humidity], day_block[:temperatureHigh], day_block[:temperatureLow]]  
+     i = i + 1
+
+     some_hash = {
+                   time: day_block[:time], 
+                   time: day_block[:time], 
+                   icon: day_block[:icon],
+                   humidity: day_block[:humidity], 
+                   temperatureHigh: day_block[:temperatureHigh], 
+                   temperatureLow: day_block[:temperatureLow] 
+                 }
+
+      acc[("day+"+"#{i}").to_sym] = some_hash
       acc
     end
   end
 
-  def bottom_make_days_array_temp(incm_json)
-    i=1
-    incm_json[:daily][:data].reduce({}) do |acc, day_block|
+  def bottom_make_hours_hash_temp(incm_json)
+    i= 0
+
+    incm_json[:hourly][:data].reduce({}) do |acc, hour_block|
       i = i + 1
-      acc[("day_"+"#{i}").to_sym] = [day_block[:time], day_block[:temperatureHigh]]
+
+      if i < 9 
+        some_hash = {
+        time: hour_block[:time],
+        temperature: hour_block[:temperature]
+        }
+        acc[("hour+"+"#{i}").to_sym] = some_hash 
+      end
+
       acc
     end
   end
