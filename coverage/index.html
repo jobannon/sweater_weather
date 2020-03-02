@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-01T22:53:32-07:00">2020-03-01T22:53:32-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-02T09:28:15-07:00">2020-03-02T09:28:15-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  100.0%
+  91.07%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
-       <span class="yellow">
-         1.0
+       <span class="red">
+         0.93
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>51</b> relevant lines,
+    <b>56</b> relevant lines,
     <span class="green"><b>51</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed. </span>
+    <span class="red"><b>5</b> lines missed. </span>
     (<span class="green">
-  100.0%
+  91.07%
 </span>
 )
   </div>
@@ -71,13 +71,13 @@
       <tbody>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#8b447c78b92c9bb4626730a669f6ccfe2f502a1a" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">13</td>
+            <td class="strong t-file__name"><a href="#d22aba42b017be6120bf1b77d89dd3773aca1f1d" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
+            <td class="red strong cell--number t-file__coverage">58.33 %</td>
+            <td class="cell--number">26</td>
+            <td class="cell--number">12</td>
             <td class="cell--number">7</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">0.58</td>
             
           </tr>
         
@@ -198,7 +198,7 @@
             <td class="cell--number">2</td>
             <td class="cell--number">2</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">1.50</td>
             
           </tr>
         
@@ -230,12 +230,12 @@
 
       <div class="source_files">
       
-        <div class="source_table" id="8b447c78b92c9bb4626730a669f6ccfe2f502a1a">
+        <div class="source_table" id="d22aba42b017be6120bf1b77d89dd3773aca1f1d">
   <div class="header">
-    <h3>app/models/user.rb</h3>
+    <h3>app/controllers/application_controller.rb</h3>
     <h4>
-      <span class="green">
-  100.0%
+      <span class="red">
+  58.33%
 </span>
 
       lines covered
@@ -244,9 +244,9 @@
     
 
     <div class="t-line-summary">
-      <b>7</b> relevant lines.
+      <b>12</b> relevant lines.
       <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
 
     
@@ -263,40 +263,40 @@
 
             
 
-            <code class="ruby">class User &lt; ActiveRecord::Base</code>
+            <code class="ruby">class ApplicationController &lt; ActionController::API</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="2">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="3">
+          <li class="covered" data-hits="1" data-linenumber="2">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  before_create do |user|</code>
+            <code class="ruby">  include ActionController::HttpAuthentication::Token::ControllerMethods</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="3">
+            
             
 
             
 
-            <code class="ruby">   user.api_key = user.generate_api_key</code>
+            <code class="ruby">  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby">  # Add a before_action to authenticate all requests.</code>
           </li>
         </div>
       
@@ -307,7 +307,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">  # Move this to subclassed controllers if you only</code>
           </li>
         </div>
       
@@ -318,7 +318,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  # want to authenticate certain methods.</code>
           </li>
         </div>
       
@@ -329,18 +329,18 @@
 
             
 
-            <code class="ruby">  def generate_api_key</code>
+            <code class="ruby">  before_action :authenticate</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="8">
+            
             
 
             
 
-            <code class="ruby">    loop do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -351,18 +351,18 @@
 
             
 
-            <code class="ruby">      token = SecureRandom.base64.tr(&#39;+/=&#39;, &#39;Qrt&#39;)</code>
+            <code class="ruby">  protected</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="10">
+            
             
 
             
 
-            <code class="ruby">      break token unless User.exists?(api_key: token)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -373,12 +373,34 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  # Authenticate the user with token based authentication</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="12">
+          <li class="covered" data-hits="1" data-linenumber="12">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def authenticate</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby">    authenticate_token || render_unauthorized</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
             
             
 
@@ -389,7 +411,128 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="13">
+          <li class="never" data-hits="" data-linenumber="15">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="16">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def authenticate_token</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby">    authenticate_with_http_token do |token, options|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="18">
+            
+            
+
+            
+
+            <code class="ruby">      @current_user = User.find_by(api_key: token)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def render_unauthorized(realm = &quot;Application&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">    self.headers[&quot;WWW-Authenticate&quot;] = %(Token realm=&quot;#{realm}&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">    render json: &#39;Bad credentials&#39;, status: :unauthorized</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="26">
             
             
 
@@ -2457,8 +2600,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="8">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="8">
+            <span class="hits">2</span>
             
 
             
