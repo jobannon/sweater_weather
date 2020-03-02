@@ -13,7 +13,6 @@ class Api::V1::MunchiesController < ApplicationController
     yelp_obj = YelpGetter.new(yelp_open_business)
 
     final_results_hash_builder = FinalResults.new(location_params, travel_time_english, json_forecast, yelp_obj)
-
     render json: FinalResultsSerializer.new(final_results_hash_builder)
   end
 

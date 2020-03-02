@@ -10,7 +10,7 @@ class YelpGetterJson
       c.params['longitude']= lng #'-122.399972' #lng
       c.params['open_at']= time_adjust
     end
-    JSON.parse(results.body, symbolize_names: true)
+    clean_json(results)
   end
 
   # private
@@ -21,7 +21,7 @@ class YelpGetterJson
    end
   end
 
-  def get_json
-    JSON.parse
+  def clean_json(incoming)
+    JSON.parse(incoming.body, symbolize_names: true)
   end
 end

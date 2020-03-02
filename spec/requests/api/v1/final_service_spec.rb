@@ -1,11 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "as a request" do 
-  it "retuns to me 
-  -the end location
-  -the travel time
-  -the forecast at the end location
-  -a restaurant at the location end that is chinese food" do  
+  it "returns to me 
+    -the end location
+    -the travel time
+    -the forecast at the end location
+    -a restaurant at the location end that is chinese food" do  
 
   get "/api/v1/munchies?start=denver,co&end=pueblo,co&food=chinese"
 

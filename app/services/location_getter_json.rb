@@ -39,7 +39,7 @@ class LocationGetterJson
     response = conn.get do |c|
       c.params['address'] = @location
     end
-    JSON.parse(response.body, symbolize_names:true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def get_json_directions
@@ -48,7 +48,7 @@ class LocationGetterJson
       c.params['origin'] = @start
       c.params['destination'] = @end
     end
-    JSON.parse(response.body, symbolize_names:true)
+    JSON.parse(response.body, symbolize_names: true)
   end
   
 end
