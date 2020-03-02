@@ -2,7 +2,6 @@ class LocationGetterJson
   attr_reader :location
 
   def initialize(location, service = 'geocode')
-    #yeah, I know, this needs a refact to one conn connection and not a wierd reassignment of the @location variable...but "tech debt" 
     @service = service 
     @start = location[:start]
     @end = location[:end]
@@ -43,7 +42,6 @@ class LocationGetterJson
   end
 
   def get_json_directions
-    # https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=YOUR_API_KEY
     response = conn(@service).get do |c|
       c.params['origin'] = @start
       c.params['destination'] = @end
