@@ -5,7 +5,7 @@ class LocationGetterJson
     @service = service 
     @start = location[:start]
     @end = location[:end]
-    @location = location[:end]
+    @location = location
   end
 
   def get_lat
