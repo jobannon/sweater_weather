@@ -1,7 +1,7 @@
 class Api::V1::ForecastController < ApplicationController
   def show
-    lat = LocationGetter.new(location_params).get_lat
-    lng = LocationGetter.new(location_params).get_lng
+    lat = LocationGetterJson.new(location_params).get_lat
+    lng = LocationGetterJson.new(location_params).get_lng
     json_forecast = ForecastGetterJson.new(lat,lng).get_forcast
     
     # parking_space_for_now
