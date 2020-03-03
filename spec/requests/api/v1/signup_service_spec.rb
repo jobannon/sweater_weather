@@ -13,10 +13,10 @@ RSpec.describe "as a user, when I request a login" do
 
     clean = JSON.parse(response.body, symbolize_names: true)
 
-    expect(clean[:data][:attributes][:return][:status]).to eq("201")
-
     user_token = User.last.api_token
-    expect(clean[:data][:attributes][:return][:body][:api_key]).to eq(user_token)
+
+    expect(clean).to eq({api_token: user_token})
+    expect(response.status).to eq(201)
   end
 
   it "doesn't save if not provided with everything" do 
@@ -29,7 +29,7 @@ RSpec.describe "as a user, when I request a login" do
 
     clean = JSON.parse(response.body, symbolize_names: true)
 
-    expect(clean[:data][:attributes][:return][:status]).to eq("401")
-    expect(clean[:data][:attributes][:return][:body][:api_key]).to eq("UNAUTHORIZED - Password can't be blank and Password can't be blank")
+    expect(clean).to eq({message: "Password can't be blank and Password can't be blank"})
+    expect(response.status).to eq(406) 
   end
 end
