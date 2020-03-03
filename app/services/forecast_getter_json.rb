@@ -1,5 +1,5 @@
 class ForecastGetterJson
-  attr_reader :lat, :lng
+  attr_reader :lat, :lng, :time
 
   def initialize(lat,lng)
     @lat = lat
@@ -10,10 +10,19 @@ class ForecastGetterJson
     get_json
   end
 
+  def get_forcast_future(time)
+    @time = time
+    get_json
+  end
+
   private
 
   def conn
     Faraday.new("https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{@lat},#{@lng}") 
+  end
+
+  def conn_with_time
+    Faraday.new("https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{@lat},#{@lng},#{@time}") 
   end
 
   def get_json
@@ -21,4 +30,5 @@ class ForecastGetterJson
     end
     JSON.parse(response.body, symbolize_names:true)
   end
+
 end
