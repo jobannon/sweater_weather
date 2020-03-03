@@ -11,7 +11,9 @@ RSpec.describe "as a user, when I request a login" do
     }
     post '/api/v1/sessions', params: params 
 
-    clean = JSON.parse(response.body, symbolize_names: true)
+    clean_json = JSON.parse(response.body, symbolize_names: true)
+    expect(clean_json).to eq({message: "Unauthorized - you entered the wrong password or email"})
+    expect(response.status).to eq(403)
   end
 
   it "it logs me in when I enter the proper credentials" do 
@@ -25,6 +27,8 @@ RSpec.describe "as a user, when I request a login" do
     # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     post '/api/v1/sessions', params: params 
 
-    clean = JSON.parse(response.body, symbolize_names: true)
+    clean_json = JSON.parse(response.body, symbolize_names: true)
+    expect(clean_json).to eq({api_token: user.api_token})
+    expect(response.status).to eq(200)
   end
 end
