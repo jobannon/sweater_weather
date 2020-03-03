@@ -1,13 +1,10 @@
+# class User < ApplicationRecord
 class User < ActiveRecord::Base
+  validates_presence_of :email, :password
+  has_secure_password 
+  # has_secure_password :api_token, validations: false
 
-  # before_create do |user|
-  #  user.api_key = user.generate_api_key
-  # end
-
-  # def generate_api_key
-  #   loop do
-  #     token = SecureRandom.base64.tr('+/=', 'Qrt')
-  #     break token unless User.exists?(api_key: token)
-  #   end
-  # end
+  before_save do
+    self.api_token = SecureRandom.urlsafe_base64
+  end
 end
