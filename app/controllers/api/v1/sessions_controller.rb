@@ -1,14 +1,10 @@
 class Api::V1::SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
-    binding.pry
     if user && user.authenticate(params[:password])
-      render json: user.api_token
-      # login_redirect(user)
+      render status: :ok, json: {api_token: user.api_token}
     else
-      render status: 500, status: :forbidden, json: "Some error code - you entered the wrong password or email"
-      # flash[:notice] = 'Your email or password was incorrect!'
-      # render :new
+      render status: :forbidden, json: {message: "Unauthorized - you entered the wrong password or email"}
     end
   end
 end
