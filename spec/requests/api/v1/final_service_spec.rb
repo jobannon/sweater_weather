@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "as a request" do 
-  it "returns to me 
+  xit "returns to me 
     -the end location
     -the travel time
     -the forecast at the end location
