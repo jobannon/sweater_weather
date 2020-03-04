@@ -3,8 +3,8 @@ class LocationGetterJson
 
   def initialize(location, service = 'geocode')
     @service = service 
-    @start = location[:start]
-    @end = location[:end]
+    @start = location[:start] || location[:origin]
+    @end = location[:end] || location[:destination]
     @location = location[:end] || location
   end
 

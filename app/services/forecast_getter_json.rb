@@ -12,7 +12,7 @@ class ForecastGetterJson
 
   def get_forcast_future(time)
     @time = time
-    get_json
+    get_json_time
   end
 
   private
@@ -27,6 +27,12 @@ class ForecastGetterJson
 
   def get_json
     response = conn.get do |c|
+    end
+    JSON.parse(response.body, symbolize_names:true)
+  end
+
+  def get_json_time
+    response = conn_with_time.get do |c|
     end
     JSON.parse(response.body, symbolize_names:true)
   end
