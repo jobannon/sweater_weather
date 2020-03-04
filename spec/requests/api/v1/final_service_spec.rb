@@ -7,6 +7,8 @@ RSpec.describe "as a request" do
     -the forecast at the end location
     -a restaurant at the location end that is chinese food", :vcr do  
 
+  user = User.create!(email: "jtobannon@gmail.com", password: "password", password_confirmation: "password")
+  allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
   allow(Time).to receive(:now).and_return(Time.parse('2020-03-02 11:22:54 -0700'))
 
   get "/api/v1/munchies?start=denver,co&end=pueblo,co&food=chinese"

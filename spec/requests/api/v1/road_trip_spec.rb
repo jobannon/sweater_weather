@@ -7,6 +7,7 @@ RSpec.describe "when I ask for a road trip" do
       -and the forecast temp", :vcr do
 
     user = User.create!(email: "jtobannon@gmail.com", password: "password", password_confirmation: "password")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     params = {
       "origin": "Denver,CO",
       "destination": "Pueblo,CO",

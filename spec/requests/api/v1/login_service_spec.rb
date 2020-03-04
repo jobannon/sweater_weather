@@ -24,7 +24,6 @@ RSpec.describe "as a user, when I request a login" do
       password: 'password',
       password_confirmation: 'password'
     }
-    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     post '/api/v1/sessions', params: params 
 
     clean_json = JSON.parse(response.body, symbolize_names: true)

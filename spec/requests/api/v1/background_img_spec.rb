@@ -2,6 +2,8 @@ require "rails_helper"
 
 RSpec.describe "when I visit the forecast page " do 
   it "pulls a background image to me to see based on the city searched for", :vcr do 
+    user = User.create!(email: "jtobannon@gmail.com", password: "password", password_confirmation: "password")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     get '/api/v1/backgrounds?location=denver,co'
 
     # results = JSON.parse(response.body, symbolize_names: true)
