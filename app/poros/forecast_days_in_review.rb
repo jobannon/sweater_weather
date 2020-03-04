@@ -3,7 +3,7 @@ class ForecastDaysInReview
 
   def initialize(data)
     @daily_stats = data[:daily][:data].map do |day_block|
-      [{time: day_block[:time]}, 
+      [ 
       {time: day_block[:time]}, 
       {icon: day_block[:icon]},
       {humidity: day_block[:humidity]}, 
