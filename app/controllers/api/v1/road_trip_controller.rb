@@ -1,7 +1,7 @@
 class Api::V1::RoadTripController < ApplicationController
   def show
-    this_current_user = User.find_by(api_token: location_params[:api_key])
-    this_current_user = User.where(api_token: location_params[:api_key])
+    # this_current_user = User.find_by(api_token: location_params[:api_token])
+    this_current_user = User.where(api_token: location_params[:api_token])
     if this_current_user.nil?
       render status: :unauthorized, json: {message: "Please enter a valid API key"}
     else
