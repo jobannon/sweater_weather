@@ -1,6 +1,10 @@
 class Api::V1::MunchiesController < ApplicationController
   def show
-    render json: MunchiesSerializer.new(Munchies.new(location_params))
+    if current_user
+      render json: MunchiesSerializer.new(Munchies.new(location_params))
+    else
+      render json: { error_message: "Not Authorized" }
+    end
   end
 
   private
