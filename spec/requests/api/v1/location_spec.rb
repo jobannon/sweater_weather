@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "when the landing page is accessed" do 
-  it "can populate the forecast with JSON" do 
+  it "can populate the forecast with JSON", :vcr do 
     get '/api/v1/forecast?location=denver,co'
 
     expect(response).to be_successful
     results = JSON.parse(response.body, symbolize_names: true)
 
+    binding.pry
     expect(results[:data][:attributes][:left].keys.count).to eq(9)
     expect(results[:data][:attributes][:right].keys.count).to eq(8)
     expect(results[:data][:attributes][:bottom].keys.count).to eq(2)

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "when I visit the forecast page " do 
-  it "pulls a background image to me to see based on the city searched for" do 
+  it "pulls a background image to me to see based on the city searched for", :vcr do 
     get '/api/v1/backgrounds?location=denver,co'
 
     # results = JSON.parse(response.body, symbolize_names: true)

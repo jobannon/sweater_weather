@@ -5,7 +5,7 @@ RSpec.describe "as a request" do
     -the end location
     -the travel time
     -the forecast at the end location
-    -a restaurant at the location end that is chinese food" do  
+    -a restaurant at the location end that is chinese food", :vcr do  
 
   allow(Time).to receive(:now).and_return(Time.parse('2020-03-02 11:22:54 -0700'))
 
@@ -17,7 +17,7 @@ RSpec.describe "as a request" do
 
   expect(clean[:data][:attributes][:end_location]).to eq("pueblo,co")
   expect(clean[:data][:attributes][:travel_time]).to eq("1 hour 48 mins")
-  expect(clean[:data][:attributes][:forecast]).to eq("Clear throughout the day.")
+  expect(clean[:data][:attributes][:forecast]).to eq("Flurries in the morning.")
   expect(clean[:data][:attributes][:restaurant][:name]).to eq("Kan's Kitchen")
   expect(clean[:data][:attributes][:restaurant][:address]).to eq("1620 S Prairie Ave")
   end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "as a user, when I request a login" do 
-  it "it doesn't log me in when I enter the wrong email" do 
+  it "it doesn't log me in when I enter the wrong email", :vcr do 
     user = User.create!(email: "jtobannon@gmail.com", password: "password", password_confirmation: "password")
     
     params = {
@@ -16,7 +16,7 @@ RSpec.describe "as a user, when I request a login" do
     expect(response.status).to eq(403)
   end
 
-  it "it logs me in when I enter the proper credentials" do 
+  it "it logs me in when I enter the proper credentials", :vcr do 
     user = User.create!(email: "jtobannon@gmail.com", password: "password", password_confirmation: "password")
     
     params = {
