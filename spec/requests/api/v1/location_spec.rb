@@ -42,31 +42,3 @@ RSpec.describe "when the landing page is accessed" do
     expect(results[:data][:attributes][:forecast_hours_in_review][:hourly_stats].first.second[:temperature]).to eq(48.64)
   end
 end
-
-# => {:data=>
-#   {:id=>nil,
-#    :type=>"forecast",
-#    :attributes=>
-#     {:forecast_summary=>{:summary=>{:icon=>"clear-night", :summary=>"Clear", :temperature=>48.24, :temperature_high=>62.06, :temperature_low=>27.76, :state=>"denver", :city=>"co", :time=>1583291285, :date=>1583291285}},
-#      :forecast_details=>{:details=>{:icon=>"clear-night", :summary=>"Clear", :feel_like=>48.27, :humidity=>26, :visiblity=>"10.00", :uv_index=>0, :today_message=>"Clear throughout the day.", :tonight_message=>"Clear"}},
-#      :forecast_days_in_review=>
-#       {:daily_stats=>
-#         [[{:time=>1583218800}, {:time=>1583218800}, {:icon=>"clear-day"}, {:humidity=>0.32}, {:temperatureHigh=>62.06}, {:temperatureLow=>27.76}],
-#          [{:time=>1583305200}, {:time=>1583305200}, {:icon=>"clear-day"}, {:humidity=>0.38}, {:temperatureHigh=>62.34}, {:temperatureLow=>30.37}],
-#          [{:time=>1583391600}, {:time=>1583391600}, {:icon=>"clear-day"}, {:humidity=>0.47}, {:temperatureHigh=>59.01}, {:temperatureLow=>31.61}],
-#          [{:time=>1583478000}, {:time=>1583478000}, {:icon=>"partly-cloudy-day"}, {:humidity=>0.39}, {:temperatureHigh=>67.92}, {:temperatureLow=>38.61}],
-#          [{:time=>1583564400}, {:time=>1583564400}, {:icon=>"partly-cloudy-day"}, {:humidity=>0.31}, {:temperatureHigh=>71.01}, {:temperatureLow=>40.48}],
-#          [{:time=>1583650800}, {:time=>1583650800}, {:icon=>"partly-cloudy-day"}, {:humidity=>0.41}, {:temperatureHigh=>65.99}, {:temperatureLow=>35.49}],
-#          [{:time=>1583733600}, {:time=>1583733600}, {:icon=>"clear-day"}, {:humidity=>0.47}, {:temperatureHigh=>64.25}, {:temperatureLow=>35.48}],
-#          [{:time=>1583820000}, {:time=>1583820000}, {:icon=>"rain"}, {:humidity=>0.6}, {:temperatureHigh=>61.52}, {:temperatureLow=>33.51}]]},
-#      :forecast_hours_in_review=>
-#       {:hourly_stats=>
-#         [[{:time=>1583290800}, {:temperature=>48.64}],
-#          [{:time=>1583294400}, {:temperature=>45.62}],
-#          [{:time=>1583298000}, {:temperature=>40.68}],
-#          [{:time=>1583301600}, {:temperature=>37.02}],
-#          [{:time=>1583305200}, {:temperature=>35.59}],
-#          [{:time=>1583308800}, {:temperature=>34.08}],
-#          [{:time=>1583312400}, {:temperature=>32.65}],
-#          [{:time=>1583316000}, {:temperature=>31.42}],
-#          [{:time=>1583319600}, {:temperature=>30.05}]]}}}}
