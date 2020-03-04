@@ -5,7 +5,7 @@ class LocationGetterJson
     @service = service 
     @start = location[:start]
     @end = location[:end]
-    @location = location
+    @location = location[:end] || location
   end
 
   def get_lat
@@ -48,5 +48,4 @@ class LocationGetterJson
     end
     JSON.parse(response.body, symbolize_names: true)
   end
-  
 end

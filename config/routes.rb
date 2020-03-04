@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get "/forecast", to: "forecast#show"
       get "/backgrounds", to: "backgrounds#show"
       get "/munchies", to: "munchies#show"
+      post "/road_trip", to: "road_trip#show" 
 
       post "/users", to: "user#create"
       post "/sessions", to: "sessions#create"
