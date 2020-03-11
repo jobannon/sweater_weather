@@ -25,7 +25,7 @@
     <img src="images/sweater.jpg" alt="Logo" width="800" height="800">
   </a>
 
-  <h3 align="center">Sweater Weather</h3>
+  <h1 align="center">Sweater Weather</h1>
 
   <p align="center">
     Welcome to the Sweater Weather API 
@@ -78,7 +78,6 @@ This project exposes four endpoints.  These endpoints will infrom a ficitious fr
 
 * <img src="https://backend.turing.io/module3/projects/sweater_weather/images/sign_up.png" width="800">
 * ![returned_json]()
-
 
 * <img src="https://backend.turing.io/module3/projects/sweater_weather/images/login.png" width="800">
 * ![returned_json]()
