@@ -1,7 +1,12 @@
 class ForecastDetails
   attr_reader :details
+
   def initialize(data, location) 
-    @details ={
+    @details = build_details_hash(data)
+  end
+
+  def build_details_hash(data)
+    {
      icon: data[:currently][:icon],
      summary: data[:currently][:summary],
      feel_like: data[:currently][:apparentTemperature],

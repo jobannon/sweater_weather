@@ -10,7 +10,7 @@ class LocationGetterJson
 
   def get_lat
     get_json[:results].first[:geometry][:location][:lat]
-  end
+ end
 
   def get_lng
     get_json[:results].first[:geometry][:location][:lng]
