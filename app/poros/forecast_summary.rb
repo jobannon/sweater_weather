@@ -1,15 +1,20 @@
 class ForecastSummary
-  attr_reader :summary
+  attr_reader :icon, :summary, :temperature, :temperature_high, :temperature_low, :state, :city, :time, :date 
+
   def initialize(data, location)
-    @summary = {}
-    @summary[:icon] = data[:currently][:icon]
-    @summary[:summary]= data[:currently][:summary]
-    @summary[:temperature] = data[:currently][:temperature]
-    @summary[:temperature_high] = data[:daily][:data].first[:temperatureHigh]
-    @summary[:temperature_low] = data[:daily][:data].first[:temperatureLow]
-    @summary[:state] = location.split(',').first
-    @summary[:city] = location.split(',').last
-    @summary[:time] = data[:currently][:time]
-    @summary[:date] = data[:currently][:time]
+    build_forcast(data, location)
+  end 
+
+  def build_forcast(data, location) 
+      @icon = data[:currently][:icon]
+      @summary = data[:currently][:summary]
+      @temperature = data[:currently][:temperature]
+      @temperature_high = data[:daily][:data].first[:temperatureHigh]
+      @temperature_low = data[:daily][:data].first[:temperatureLow]
+      @state = location.split(',').first
+      @city = location.split(',').last
+      @time = data[:currently][:time]
+      @date = data[:currently][:time]
   end
 end
+
