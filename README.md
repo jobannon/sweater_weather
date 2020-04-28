@@ -18,6 +18,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![LinkedIn][linkedin-shield]][linkedin-url]
+[![Inline docs](http://inch-ci.org/github/jobannon/sweater_weather.svg?branch=master)](http://inch-ci.org/github/jobannon/sweater_weather)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -28,7 +29,7 @@
   <h1 align="center">Sweater Weather</h1>
 
   <p align="center">
-    Welcome to the Sweater Weather API 
+    Pme to the Sweater Weather API 
     <br />
     <br />
     <br />
@@ -54,10 +55,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Sweater weather is a exercise in consuming Weather data through the DarkSkyAPI, location data thru Google Geocoding, and Yelp Informaiton from the the Yelp Fusion API.
+Sweater weather is a exercise in: 
+* Consuming Weather data through the Dark Sky API,
+* Location data through Google Geocoding,
+* Yelp information from the Yelp Fusion API.
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Ruby on Rails](https://rubyonrails.org/)
 * [Google Geocoding API](https://jquery.com)
 * [Yelp Fusion API](https://www.yelp.com/fusion/)
@@ -74,7 +77,7 @@ Project specs can be found here
 <!-- USAGE EXAMPLES -->
 ## Usage/Endpoints
 
-This project exposes four endpoints.  These endpoints will infrom a ficitious front end (yet to be built)
+This project exposes four endpoints.  These endpoints will inform a fictitious front end (yet to be built)
 
 * <img src="https://backend.turing.io/module3/projects/sweater_weather/images/sign_up.png" width="800">
 * ![returned_json]()
