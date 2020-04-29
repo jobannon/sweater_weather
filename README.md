@@ -80,7 +80,7 @@ Project specs can be found here
 
 This project exposes four endpoints.  These endpoints will inform a fictitious front end 
 ### 1. Create User 
-<img src="https://backend.turing.io/module3/projects/sweater_weather/images/sign_up.png" width="800">
+  <img src="https://backend.turing.io/module3/projects/sweater_weather/images/sign_up.png" width="800">
 
 * Endpoint 
   * `POST` `"<domain>/api/v1/users"`
@@ -104,7 +104,8 @@ This project exposes four endpoints.  These endpoints will inform a fictitious f
 
 
 ### 2.  Login User
-* <img src="https://backend.turing.io/module3/projects/sweater_weather/images/login.png" width="800">
+
+  <img src="https://backend.turing.io/module3/projects/sweater_weather/images/login.png" width="800">
 
 * Endpoint 
   * `POST` `"<domain>/api/v1/users"`
@@ -125,7 +126,9 @@ This project exposes four endpoints.  These endpoints will inform a fictitious f
   </details>
 
 ### 3.  Forecast
-* <img src="https://backend.turing.io/module3/projects/sweater_weather/images/root.png" width="800">
+
+<img src="https://backend.turing.io/module3/projects/sweater_weather/images/root.png" width="800">
+
 * Endpoint 
   * `GET` `"<domain>/api/v1/forcast"`
 * Required Params: 
@@ -392,17 +395,19 @@ This project exposes four endpoints.  These endpoints will inform a fictitious f
     }
   ```
 
-    </details>
+  </details>
 
-### 3. Generate a RoadTrip!
-  * <img src="https://backend.turing.io/module3/projects/sweater_weather/images/road_trip.png" width="800">
-  * Endpoint 
-    * `GET` `"<domain>/api/v1/forcast"`
-  * Required Params: 
-    - origin: 
-      - IE-  denver, co
-    - destination: 
-      - IE-  Fort Lupton, co
+### 4. Generate a RoadTrip!
+
+<img src="https://backend.turing.io/module3/projects/sweater_weather/images/road_trip.png" width="800">
+
+* Endpoint 
+  * `GET` `"<domain>/api/v1/forcast"`
+* Required Params: 
+  - origin: 
+    - IE-  denver, co
+  - destination: 
+    - IE-  Fort Lupton, co
 
     <details><summary>Returned JSON (click me):</summary>
 
