@@ -21,7 +21,10 @@ class Munchies
   private 
 
   def get_forecast_json
-    ForecastGetterJson.new(@lat,@lng).get_forcast_future(@google_data_obj.time_adjust)
+    lat = @google_data_obj.lat
+    lng = @google_data_obj.lng
+    time_adjust = @google_data_obj.time_adjust
+    ForecastGetterJson.new(lat,lng).get_forcast_future(time_adjust)
   end
 
   def get_yelp_json
