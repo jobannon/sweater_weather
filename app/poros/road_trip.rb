@@ -13,7 +13,7 @@ class RoadTrip
     @time_adjust = make_time_adjust
 
     @forecast = get_forecast_json_future[:hourly][:summary]
-    @arrival_temperature =get_forecast_json_future[:hourly][:data].first[:temperature]
+    @arrival_temperature = get_forecast_json_future[:hourly][:data].first[:temperature]
   end
 
   private 
