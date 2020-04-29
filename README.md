@@ -29,7 +29,7 @@
   <h1 align="center">Sweater Weather</h1>
 
   <p align="center">
-    Pme to the Sweater Weather API 
+    Welcome to the Sweater Weather API 
     <br />
     <br />
     <br />
